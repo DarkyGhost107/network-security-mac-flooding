@@ -29,6 +29,7 @@ sudo python3 mac_flooding.py
 sudo python3 mac_flooding.py -c 50000
 sudo python3 mac_flooding.py -c 10000 -d 0.001
 ```
+![Texto alternativo](https://github.com/DarkyGhost107/network-security-mac-flooding/blob/main/screenshots/eje%20mac%20flooding%20script.png)
 
 ## 4. Requisitos
 
@@ -61,19 +62,7 @@ Para cada frame:
 
 ## 6. Topologia de Red (GNS3)
 
-```
-+──────────────+    +──────────────────────────+    +──────────────+
-|   HOST A     |    |       SWITCH L2           |    |   HOST B     |
-| 192.168.1.10 |----| Tabla CAM: DESBORDADA     |----| 192.168.1.20 |
-+-─────────────+    | -> Modo HUB activo        |    +-─────────────+
-                    +────────────+──────────────+
-                                 |
-                        +────────+────────+
-                        |   ATACANTE       |
-                        | 192.168.1.50     |
-                        | Capturando todo  |
-                        +-─────────────────+
-```
+![Texto alternativo](https://github.com/DarkyGhost107/network-security-mac-flooding/blob/main/screenshots/topologia%20Mac%20Flooding.png)
 
 ### Direccionamiento
 
@@ -88,14 +77,11 @@ Para cada frame:
 
 Coloca tus capturas en `screenshots/`:
 - `screenshots/cam_table_before.png` - Tabla CAM normal
-- `screenshots/mac_flood_running.png` - Script activo
+  ![Texto alternativo](https://github.com/DarkyGhost107/network-security-mac-flooding/blob/main/screenshots/Mac%20address%20table.png)
+- `screenshots/mac_flood_running.png` - tabla dinamica
+- ![Texto alternativo](https://github.com/DarkyGhost107/network-security-mac-flooding/blob/main/screenshots/mac%20address%20dynamic%20con%20el%20script.png)
 - `screenshots/cam_table_full.png` - Tabla CAM desbordada
-- `screenshots/traffic_captured.png` - Wireshark capturando trafico ajeno
-
-```cisco
-show mac address-table count
-show mac address-table
-```
+- ![Texto alternativo](https://github.com/DarkyGhost107/network-security-mac-flooding/blob/main/screenshots/mac%20address%20table%20con%20script.png)
 
 ## 8. Contramedidas
 
@@ -114,11 +100,14 @@ interface range GigabitEthernet0/1 - 24
  switchport port-security aging time 5
 show port-security interface GigabitEthernet0/1
 ```
+![Texto alternativo](https://github.com/DarkyGhost107/network-security-mac-flooding/blob/main/screenshots/contramedida%20mac%20flooding.png)
 
 ## 9. Referencias
 
 - [MITRE ATT&CK T1557 - Adversary-in-the-Middle](https://attack.mitre.org/techniques/T1557/)
 - [Cisco Port Security Best Practices](https://www.cisco.com/c/en/us/support/docs/lan-switching/port-security/11841-port-security.html)
 
+## 10.Enlaces
+Video:https://youtu.be/SfjPA316Xn8
 ---
 *Laboratorio de Seguridad de Redes | GNS3 | Uso educativo exclusivo*
